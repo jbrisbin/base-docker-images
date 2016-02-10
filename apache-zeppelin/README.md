@@ -11,9 +11,9 @@ This project demonstrates the use of `make` and overlays to build up a `Dockerfi
 
 ### Using
 
-To use this project, just run the `make install` target to have the Dockerfile generated from the overlays and `docker build` executed with the proper flags.
+To use this project, just run the `make build` target to have the Dockerfile generated from the overlays and `docker build` executed with the proper flags.
 
-    $ make install
+    $ make build
 
 ### Configuring
 
