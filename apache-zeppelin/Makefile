@@ -9,18 +9,15 @@ DOCKER_BUILD_OPTS 	?=
 
 OVERLAY_FILES := $(foreach overlay,$(OVERLAYS),$(wildcard overlays/$(overlay).Dockerfile))
 
-.PHONY = all clean build
+.PHONY = all clean
 
 all: $(DOCKER_BUILD_FILE)
-	@cat $(DOCKER_BUILD_FILE)
+	@echo "Building Docker image $(TAG)"
+	@docker build -t $(TAG) $(DOCKER_BUILD_OPTS) -f $(DOCKER_BUILD_FILE) $(DOCKER_BUILD_DIR)
 
 clean:
 	@docker rmi $(shell docker images $(TAG) | tail +2 | awk '{print $3}')
 	@rm -f $(DOCKER_BUILD_FILE)
-
-build: $(DOCKER_BUILD_FILE)
-	@echo "Building Docker image $(TAG)"
-	@docker build -t $(TAG) $(DOCKER_BUILD_OPTS) -f $(DOCKER_BUILD_FILE) $(DOCKER_BUILD_DIR)
 
 $(DOCKER_BUILD_FILE): $(OVERLAY_FILES)
 	@echo FROM $(FROM) >$(@)
