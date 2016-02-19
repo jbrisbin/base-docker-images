@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+
+script:
+  - make -C build-essential push
+  - make -C build-java push
+  - make -C build-scala push
+  - make -C trusty-minimal push
+  - make -C zeppelin push
