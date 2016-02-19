@@ -13,4 +13,4 @@ script:
   # - make -C trusty-minimal install push
   # - make -C artifactory install push
   # Create Apache Zeppelin image, filtering out excessive log messages that exceed 4MB limit of stdout
-  - make -C zeppelin install push | egrep -v '^Download'
+  - make -C zeppelin install push
