@@ -11,4 +11,5 @@ script:
   - make -C build-java install push
   - make -C build-scala install push
   - make -C trusty-minimal install push
-  - make -C zeppelin installpush
+  - make -C artifactory install push
+  - make -C zeppelin install push
