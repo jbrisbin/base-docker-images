@@ -7,9 +7,10 @@ before_install:
   - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
 
 script:
-  - make -C build-essential install push
-  - make -C build-java install push
-  - make -C build-scala install push
-  - make -C trusty-minimal install push
-  - make -C artifactory install push
-  - make -C zeppelin install push
+  # - make -C build-essential install push
+  # - make -C build-java install push
+  # - make -C build-scala install push
+  # - make -C trusty-minimal install push
+  # - make -C artifactory install push
+  # Create Apache Zeppelin image, filtering out excessive log messages that exceed 4MB limit of stdout
+  - make -C zeppelin install push | egrep -v '^Download'
