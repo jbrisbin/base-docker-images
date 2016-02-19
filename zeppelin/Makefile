@@ -1,8 +1,8 @@
-TAG := jbrisbin/zeppelin
+TAG               := jbrisbin/zeppelin
 
-FROM := jbrisbin/build-java:8
-MAINTAINER := Jon Brisbin <jon@jbrisbin.com>
+FROM              := jbrisbin/build-java:8
+MAINTAINER        := Jon Brisbin <jon@jbrisbin.com>
 
-OVERLAYS := env packages mesos spark zeppelin
+OVERLAYS          := env packages docker.mk/overlays/mesos docker.mk/overlays/spark zeppelin
 
 include ../docker.mk
