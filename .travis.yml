@@ -8,9 +8,9 @@ before_install:
 
 script:
   # build-essential is just a base Ubuntu Trusty image with an updated apt-cache and essential compilation tools
-  - make -C build-essential install push
+  # - make -C build-essential install push
   # build-java adds JDK 8 and Maven 3.3 to build-essential for building Java-based apps
-  - make -C build-java install push
+  # - make -C build-java install push
   # build-scala adds SBT to the build-java image for building Scala-based apps
   # - make -C build-scala install push
   # trusty-minimal is just Ubuntu with an updated apt-cache in order to make round trips of installing faster
@@ -20,4 +20,4 @@ script:
   # zeppelin is an Apache Zeppelin install
   # - make -C zeppelin install push
   # erlang-kerl is an image meant to build Erlang-based applications that require kerl
-  - make -C erlang-kerl install push
+  - travis_wait make -C erlang-kerl install push
