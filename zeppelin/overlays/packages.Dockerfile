@@ -1,1 +1,1 @@
-RUN apt-get install -q -y curl npm nodejs-legacy
+RUN apk update && apk add bash
