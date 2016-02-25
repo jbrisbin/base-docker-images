@@ -1,8 +1,8 @@
 TAG               := jbrisbin/zeppelin
 
-FROM              := jbrisbin/alpine-java
+FROM              := ubuntu:trusty
 MAINTAINER        := Jon Brisbin <jon@jbrisbin.com>
 
-OVERLAYS          := env packages zeppelin
+OVERLAYS          := packages docker.mk/ubuntu/java8 docker.mk/ubuntu/mesos docker.mk/ubuntu/spark zeppelin
 
 include ../docker.mk

@@ -1,2 +1,3 @@
 .DS_Store
-**/overlays/docker.mk
+*/Dockerfile
+*/overlays/docker.mk
