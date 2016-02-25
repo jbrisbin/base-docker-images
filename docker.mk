@@ -1,4 +1,4 @@
-BUILTIN_OVERLAYS := overlays/build-essential overlays/java8 overlays/mesos overlays/sbt overlays/spark
+BUILTIN_OVERLAYS := ubuntu/build-essential ubuntu/java8 ubuntu/mesos ubuntu/sbt ubuntu/spark alpine/base alpine/java
 # Global verbosity settings
 V ?= 0
 
@@ -58,7 +58,7 @@ awk '/^#:mk[ ]/ {print "$$(eval " substr($$0, 6) ")"}' $(1);
 endef
 
 define add_overlay
-awk '!/^#:mk[ ]/ {print $$0}' $(1) | sed "s#\$$CURDIR/#$(dir $(realpath $(1)))#" | sed "s#$(CURDIR)/##" >>$(DOCKERFILE);
+awk '!/^#:mk[ ]/ {print $$0}' $(1) | sed "s#\$$CURDIR/#$(dir $(realpath $(1)))#g" | sed "s#$(CURDIR)/##g" >>$(DOCKERFILE);
 endef
 
 clean::
