@@ -18,6 +18,6 @@ script:
   # artifactory is an Artifactory 4 OSS install that is based on Ubuntu rather than CentOS as the official one is
   # - make -C artifactory install push
   # zeppelin is an Apache Zeppelin install
-  - travis_wait make -C zeppelin install push
+  # - travis_wait make -C zeppelin install push
   # erlang-kerl is an image meant to build Erlang-based applications that require kerl
   # - travis_wait make -C erlang-kerl install push
